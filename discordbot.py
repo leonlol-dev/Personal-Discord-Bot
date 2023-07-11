@@ -5,7 +5,9 @@ from discord.app_commands import Choice
 import webscrapping
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-TOKEN = "MTEyNTA4Mjc2NDc5OTEyNzcyMw.GjQ1qh.tSit_OOTGDPP7og5dlJC2lBNcIy5gnld625gN8"
+
+#INSERT TOKEN HERE
+TOKEN = "TOKEN GOES HERE!"
 BASE_DIR = pathlib.Path(__file__).parent
 
 
