@@ -6,7 +6,11 @@ import webscrapping
 import ebayscrape
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-TOKEN = "MTEyNTA4Mjc2NDc5OTEyNzcyMw.GSNfmi.cfoGmoCROZBHRg4BQKO2kfSkdurBh3mJd_Sj7U"
+
+
+#INSERT TOKEN HERE
+TOKEN = "TOKEN GOES HERE!"
+
 BASE_DIR = pathlib.Path(__file__).parent
 
 
@@ -127,9 +131,9 @@ async def pbj(interaction: discord.Integration):
 
 @app_commands.choices(
     card=[
-        Choice(name="H&M", value="https://i.imgur.com/L3OkMpB.png"),
-        Choice(name="Subway", value="https://i.imgur.com/uXg1fQT.png"),
-        Choice(name="Boots", value="https://i.imgur.com/nXSkzYG.png"),
+        Choice(name="H&M", value="CARD GOES HERE"),
+        Choice(name="Subway", value="CARD GOES HERE"),
+        Choice(name="Boots", value="CARD GOES HERE"),
     ]
 )
 @bot.tree.command(description="Pick a loyalty card")
