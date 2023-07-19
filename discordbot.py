@@ -3,9 +3,10 @@ from discord import app_commands
 from discord.ext import commands
 from discord.app_commands import Choice
 import webscrapping
+import ebayscrape
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-TOKEN = "MTEyNTA4Mjc2NDc5OTEyNzcyMw.GjQ1qh.tSit_OOTGDPP7og5dlJC2lBNcIy5gnld625gN8"
+TOKEN = "MTEyNTA4Mjc2NDc5OTEyNzcyMw.GSNfmi.cfoGmoCROZBHRg4BQKO2kfSkdurBh3mJd_Sj7U"
 BASE_DIR = pathlib.Path(__file__).parent
 
 
@@ -134,6 +135,56 @@ async def pbj(interaction: discord.Integration):
 @bot.tree.command(description="Pick a loyalty card")
 async def loyaltycard(interaction: discord.Integration, card: str):
     await interaction.response.send_message(card)
+
+
+@app_commands.choices(
+    condition=[
+        Choice(name="used", value="used"),
+        Choice(name="new", value="new"),
+        Choice(name="parts", value="parts"),
+    ]
+)
+@bot.tree.command(description="Find an average item cost of an Ebay Item")
+async def ebaysearch(interaction: discord.Integration, search: str, condition: str):
+    ebayList = ebayscrape.ebayAverage(search, condition)
+    embed = discord.Embed(
+        colour = discord.Colour.dark_teal(),
+        title = str(search),
+        url= str(ebayList[3]),
+        description = (
+        "Average Cost: "
+        + str(ebayList[0])
+        + "\n"
+        + "Highest Listing: "
+        + str(ebayList[1])
+        + "\n"
+        + "Lowest Listing: "
+        + str(ebayList[2])
+        + "\n")
+    )
+
+
+    embed.set_author(name="Ebay Search")
+    embed.set_image(url=str(ebayList[4]))
+    embed.set_thumbnail(url=("https://i.imgur.com/hbLT5wp.jpeg"))
+
+
+    await interaction.response.defer()
+    await asyncio.sleep(1)
+    await interaction.followup.send(embed=embed)
+    # await interaction.followup.send(
+    #     str(ebayList[3])
+    #     + "\n"
+    #     + "Average Cost: "
+    #     + str(ebayList[0])
+    #     + "\n"
+    #     + "Highest Listing: "
+    #     + str(ebayList[1])
+    #     + "\n"
+    #     + "Lowest Listing: "
+    #     + str(ebayList[2])
+    #     + "\n"
+    # )
 
 
 bot.run(TOKEN)
