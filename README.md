@@ -12,6 +12,11 @@ My bot has a function where it web scrapes a number of bus sites that my small t
 
 ![statemachineumldiagram](https://i.imgur.com/OMLpY85.jpg)
 
+# Ebay Assistant
+My bot also scrapes ebay and helps me find better deals by finding the average cost of an item. 
+
+![ebay](https://i.imgur.com/lqSMAw7.png)
+
 # Loyalty Cards
 
 Another functionality is that it has a number of my loyalty cards stored as images and with a command - the bot will send me an image of a bar code which is shown to an employee. Did this so I didn't have to log in / find a screenshot of my loyalty cards.
