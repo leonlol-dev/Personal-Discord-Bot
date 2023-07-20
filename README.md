@@ -3,7 +3,9 @@ A discord bot created in Python that slightly improves my quality of life.
 
 # Stack
 beautifulsoup - https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
 requests - https://pypi.org/project/requests/
+
 discordpy - https://discordpy.readthedocs.io/en/stable/
 
 # Quick Brief 
